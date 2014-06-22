@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+	XLSX version: <pre id="ver"></pre><br/>
+	<pre id="filename"></pre><br/>
+	<pre id="out"></pre><br/>
+	<script>
+	var XLSX = require('xlsx');
+	var gui = require('nw.gui');
+	ver.innerText = XLSX.version;
+	var ldPath = gui.App.argv[0];
+	filename.innerText = ldPath;
+	w = XLSX.readFile(ldPath); csv = XLSX.utils.sheet_to_csv(w.Sheets[w.SheetNames[0]]);
+	out.innerText = csv;
+	</script>
+  </body>
+</html>
