@@ -1,6 +1,6 @@
 # XLSX node-webkit demo
 
-This has been tested using the prebuilt osx nw 0.8 binary <http://dl.node-webkit.org/v0.10.0-rc1/node-webkit-v0.10.0-rc1-osx-ia32.zip>
+This has been tested using the prebuilt nw 0.10.3 binary
 
 ## Installation
 
@@ -9,3 +9,8 @@ After getting the files, run `make` to create an "app.nw" file.  If `nw` is on y
 ## Usage
 
     nw app.nw your_xlsx_file
+
+## Notes
+
+Even though OSX and Linux let you use relative paths, absolute paths to the XLSX
+files must be used on Windows.
