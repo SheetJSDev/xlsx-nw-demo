@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World!</title>
+    <title>Preview</title>
+    <link href="app.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-	XLSX version: <pre id="ver"></pre><br/>
-	<pre id="filename"></pre><br/>
-	<pre id="out"></pre><br/>
-	<script>
-	var XLSX = require('xlsx');
-	var gui = require('nw.gui');
-	ver.innerText = XLSX.version;
-	var ldPath = gui.App.argv[0];
-	filename.innerText = ldPath;
-	w = XLSX.readFile(ldPath); csv = XLSX.utils.sheet_to_csv(w.Sheets[w.SheetNames[0]]);
-	out.innerText = csv;
-	</script>
+    <b>Filename</b>: <code id="filename"></code> <a id="chooser">[choose a different file]</a><br/><br/>
+    <b>Sheets</b>: <pre id="sheets"></pre><br/>
+    <pre id="outpre"></pre><br/>
+		<div id="outdiv"></div><br/>
+		<input style="display:none;" id="fileDialog" type="file" accept=".xls,.xlsx,.xlsm,.xlsb,.xml,application/ms-excel,application/vnd.ms-excel"/>
+    <b>Library version</b>: <code id="ver" class="wsp"></code><br/><br/>
+    <script src="app.js"></script>
   </body>
 </html>

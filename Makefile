@@ -1,3 +1,6 @@
+STATIC_FILES=index.html app.js app.css
+NODE_MODULES=j
+
 NWZIP:=http://dl.node-webkit.org/v0.10.3/node-webkit-v0.10.3-
 NW=node-webkit-v0.10.3-
 MYOS=
@@ -36,8 +39,8 @@ endif
 .PHONY: app
 app: nw $(TARGET)
 
-$(TARGET): index.html package.json
-	npm install xlsx
+$(TARGET): $(STATIC_FILES) package.json
+	npm install $(NODE_MODULES)
 	zip -r $@ $^ node_modules/
 
 .PHONY: nw-win
@@ -61,7 +64,7 @@ nw-lin:
 nw: nw-$(MYOS)
 
 .PHONY: test
-test: $(TARGET)
+test: $(TARGET) nw
 	$(NW) $< $(shell pwd)/test.xlsx
 
 .PHONY: clean
