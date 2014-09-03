@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!-- nw-demo (C) 2014 SheetJS http://sheetjs.com -->
+<!-- vim: set ts=2: -->
 <html>
   <head>
     <title>Preview</title>
@@ -6,10 +8,12 @@
   </head>
   <body>
     <b>Filename</b>: <code id="filename"></code> <a id="chooser">[choose a different file]</a><br/><br/>
-    <b>Sheets</b>: <pre id="sheets"></pre><br/>
-    <pre id="outpre"></pre><br/>
-		<div id="outdiv"></div><br/>
-		<input style="display:none;" id="fileDialog" type="file" accept=".xls,.xlsx,.xlsm,.xlsb,.xml,application/ms-excel,application/vnd.ms-excel"/>
+    <b>Sheets</b>: <pre id="sheets"></pre>
+    <a id="export_XLSX">[ Export to XLSX ]</a><br/>
+    <pre id="outpre"></pre>
+    <div id="outdiv"></div><br/>
+    <input style="display:none;" id="fileDialog" type="file" accept=".xls,.xlsx,.xlsm,.xlsb,.xml,application/ms-excel,application/vnd.ms-excel"/>
+    <input style="display:none;" id="saveAsDialog" type="file" accept=".xls,.xlsx,.xlsm,.xlsb,.xml,application/ms-excel,application/vnd.ms-excel" nwsaveas="testout.xlsx"/>
     <b>Library version</b>: <code id="ver" class="wsp"></code><br/><br/>
     <script src="app.js"></script>
   </body>

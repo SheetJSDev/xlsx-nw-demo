@@ -1,3 +1,5 @@
+/* nw-demo -- (C) 2014 SheetJS -- http://sheetjs.com */
+/* vim: set ts=2: */ 
 var J = require('j');
 var fs = require('fs');
 var gui = require('nw.gui');
@@ -9,8 +11,11 @@ if(!fs.existsSync(ldPath)) doit();
 else process_path(ldPath);
 
 document.querySelector('#chooser').addEventListener('click', doit);
+document.querySelector('#export_XLSX').addEventListener('click', export_XLSX);
 
 function doit() { chooseFile('#fileDialog', function(evt) { process_path(this.value); }); }
+
+var w;
 
 function process_path(ldPath, mode) {
 	w = J.readFile(ldPath);
@@ -43,4 +48,11 @@ function chooseFile(name, cb) {
 	var chooser = document.querySelector(name);
 	chooser.addEventListener("change", cb, false);
 	chooser.click();
+}
+
+function export_XLSX() {
+	var xlsx = J.utils.to_xlsx(w);
+	chooseFile('#saveAsDialog', function(evt) {
+		fs.writeFileSync(this.value, xlsx);
+	});
 }
