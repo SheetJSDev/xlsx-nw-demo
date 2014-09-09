@@ -53,6 +53,11 @@ function chooseFile(name, cb) {
 function export_XLSX() {
 	var xlsx = J.utils.to_xlsx(w);
 	chooseFile('#saveAsDialog', function(evt) {
+		console.log(this.value);
+
+		/* See https://github.com/rogerwang/node-webkit/issues/2320 */
+		if(this.value == "") return;
+
 		fs.writeFileSync(this.value, xlsx);
 	});
 }
